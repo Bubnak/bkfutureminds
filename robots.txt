@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bubnak.github.io/bkfutureminds/sitemap.xml
