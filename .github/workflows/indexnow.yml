@@ -1,0 +1,16 @@
+name: Tell search engines about updates
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages to publish
+        run: sleep 90
+      - name: Submit pages to IndexNow (Bing, Copilot, ChatGPT search, DuckDuckGo, Yandex)
+        run: |
+          curl -sS -i -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{"host":"bubnak.github.io","key":"d5c82def6a1b4c4d9470d1d3a68f6cf6","keyLocation":"https://bubnak.github.io/bkfutureminds/d5c82def6a1b4c4d9470d1d3a68f6cf6.txt","urlList":["https://bubnak.github.io/bkfutureminds/"]}'
